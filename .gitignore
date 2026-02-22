@@ -1,0 +1,12 @@
+#Node modules (if added later)
+node_modules/
+
+#Environment variables
+.env 
+
+#VS Codes settings 
+.vscode/
+
+#OS generated files
+.DS_Store
+Thumbs.db
