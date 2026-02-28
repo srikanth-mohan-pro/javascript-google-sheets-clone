@@ -1,0 +1,101 @@
+body{
+    display:flex;
+    flex-direction: column;
+    margin: 0;
+}
+.header{
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 30px 30px;
+    height: 60px;
+}
+.brand{
+    display: flex;
+    width: 60px;
+    aspect-ratio: 1;
+    margin: 0;
+    /* border: 1px solid black; */
+    padding: 0px;
+    grid-row: span 2;
+}
+.title{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding-left: 8px;
+    padding-top: 5px;
+    /* letter-spacing: 1px; */
+    font-size: 12px;
+    /* border: 1px solid black; */
+    margin:0;
+}
+.title h1{
+    font-weight: 400;
+}
+.logo{
+    display: block;
+    border-radius: 6px;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    object-fit: cover;
+}
+.menu-bar{
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    /* border: 1px solid black; */
+}
+.menu-list{
+    padding: 0;
+    margin:0;
+    display: flex;
+    list-style:none;
+    
+}
+.menu-list button{
+    padding: 0px 8px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.dropdown{
+    display: none;
+    list-style: none;
+}
+.tool-bar{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    gap: 5px;
+    margin: 0;
+    /* border: 1px solid black; */
+    padding-left: 6px;
+}
+.tool-bar button{
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    width: 30px;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 8px;
+    cursor: pointer;
+}
+.formula-bar{
+    height: 30px;
+    display: flex;
+    /* border: 1px solid black; */
+    padding: 3px;
+}
+#address-input{
+    width: 40px;
+    margin-right: 5px;
+}
+#formula-input{
+    flex: 1;
+    margin-right: 5px;
+}

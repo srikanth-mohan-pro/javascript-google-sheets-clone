@@ -11,17 +11,83 @@
         <div class="brand">
             <img src="assets/images/sheets-logo.ico" alt="Logo Design" class="logo">
         </div>
+        <div class="title">
+            <h1>Hello World</h1>
+        </div>
         <nav class="menu-bar">
             <ul class="menu-list">
-                <li><button id="file">File</button></li>
-                <li><button id="edit">Edit</button></li>
-                <li><button id="view">View</button></li>
-                <li><button id="insert">Insert</button></li>
-                <li><button id="format">Format</button></li>
-                <li><button id="data">Data</button></li>
-                <li><button type="button" id="tools">Tools</button></li>
-                <li><button type="button" id="extensions">Extensions</button></li>
-                <li><button type="button" id="help">Help</button></li>
+                <li class="menu-item">
+                    <button id="file">File</button>
+                    <ul class="dropdown">
+                        <li><button type="button">a</button></li>
+                        <li><button type="button">b</button></li>
+                        <li><button type="button">c</button></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <button id="edit">Edit</button>
+                     <ul class="dropdown">
+                        <li><button type="button">a</button></li>
+                        <li><button type="button">b</button></li>
+                        <li><button type="button">c</button></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                   <button id="view">View</button>
+                    <ul class="dropdown">
+                        <li><button type="button">a</button></li>
+                        <li><button type="button">b</button></li>
+                        <li><button type="button">c</button></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <button id="insert">Insert</button>
+                     <ul class="dropdown">
+                        <li><button type="button">a</button></li>
+                        <li><button type="button">b</button></li>
+                        <li><button type="button">c</button></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <button id="format">Format</button>
+                     <ul class="dropdown">
+                        <li><button type="button">a</button></li>
+                        <li><button type="button">b</button></li>
+                        <li><button type="button">c</button></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <button id="data">Data</button>
+                     <ul class="dropdown">
+                        <li><button type="button">a</button></li>
+                        <li><button type="button">b</button></li>
+                        <li><button type="button">c</button></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <button type="button" id="tools">Tools</button>
+                     <ul class="dropdown">
+                        <li><button type="button">a</button></li>
+                        <li><button type="button">b</button></li>
+                        <li><button type="button">c</button></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <button type="button" id="extensions">Extensions</button>
+                     <ul class="dropdown">
+                        <li><button type="button">a</button></li>
+                        <li><button type="button">b</button></li>
+                        <li><button type="button">c</button></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <button type="button" id="help">Help</button>
+                     <ul class="dropdown">
+                        <li><button type="button">a</button></li>
+                        <li><button type="button">b</button></li>
+                        <li><button type="button">c</button></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -31,7 +97,8 @@
         <button id="underline">U</button>
     </div>
     <section class="formula-bar">
-        <input id="address-input" type="text" readonly>
+        <input id="address-input" type="text">
+        <input id="formula-input" type="text">
     </section>
     <main>
         <section class="workspace">
