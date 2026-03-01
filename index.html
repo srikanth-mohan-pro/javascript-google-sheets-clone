@@ -1,112 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Google Sheets Clone</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="sheet-container">
     <header class="header">
-        <div class="brand">
-            <img src="assets/images/sheets-logo.ico" alt="Logo Design" class="logo">
-        </div>
-        <div class="title">
-            <h1>Hello World</h1>
-        </div>
-        <nav class="menu-bar">
-            <ul class="menu-list">
-                <li class="menu-item">
-                    <button id="file">File</button>
-                    <ul class="dropdown">
-                        <li><button type="button">a</button></li>
-                        <li><button type="button">b</button></li>
-                        <li><button type="button">c</button></li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <button id="edit">Edit</button>
-                     <ul class="dropdown">
-                        <li><button type="button">a</button></li>
-                        <li><button type="button">b</button></li>
-                        <li><button type="button">c</button></li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                   <button id="view">View</button>
-                    <ul class="dropdown">
-                        <li><button type="button">a</button></li>
-                        <li><button type="button">b</button></li>
-                        <li><button type="button">c</button></li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <button id="insert">Insert</button>
-                     <ul class="dropdown">
-                        <li><button type="button">a</button></li>
-                        <li><button type="button">b</button></li>
-                        <li><button type="button">c</button></li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <button id="format">Format</button>
-                     <ul class="dropdown">
-                        <li><button type="button">a</button></li>
-                        <li><button type="button">b</button></li>
-                        <li><button type="button">c</button></li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <button id="data">Data</button>
-                     <ul class="dropdown">
-                        <li><button type="button">a</button></li>
-                        <li><button type="button">b</button></li>
-                        <li><button type="button">c</button></li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <button type="button" id="tools">Tools</button>
-                     <ul class="dropdown">
-                        <li><button type="button">a</button></li>
-                        <li><button type="button">b</button></li>
-                        <li><button type="button">c</button></li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <button type="button" id="extensions">Extensions</button>
-                     <ul class="dropdown">
-                        <li><button type="button">a</button></li>
-                        <li><button type="button">b</button></li>
-                        <li><button type="button">c</button></li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <button type="button" id="help">Help</button>
-                     <ul class="dropdown">
-                        <li><button type="button">a</button></li>
-                        <li><button type="button">b</button></li>
-                        <li><button type="button">c</button></li>
-                    </ul>
-                </li>
+      <div class="brand">
+        <img
+          src="assets/images/sheets-logo.ico"
+          alt="Logo Design"
+          class="logo"
+        />
+      </div>
+      <div class="title">
+        <h1>Hello World</h1>
+      </div>
+      <nav class="menu-bar">
+        <ul class="menu-list">
+          <li class="menu-item">
+            <button id="file">File</button>
+            <ul class="dropdown">
+              <li><button type="button">a</button></li>
+              <li><button type="button">b</button></li>
+              <li><button type="button">c</button></li>
             </ul>
-        </nav>
+          </li>
+          <li class="menu-item">
+            <button id="edit">Edit</button>
+            <ul class="dropdown">
+              <li><button type="button">a</button></li>
+              <li><button type="button">b</button></li>
+              <li><button type="button">c</button></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <button id="view">View</button>
+            <ul class="dropdown">
+              <li><button type="button">a</button></li>
+              <li><button type="button">b</button></li>
+              <li><button type="button">c</button></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <button id="insert">Insert</button>
+            <ul class="dropdown">
+              <li><button type="button">a</button></li>
+              <li><button type="button">b</button></li>
+              <li><button type="button">c</button></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <button id="format">Format</button>
+            <ul class="dropdown">
+              <li><button type="button">a</button></li>
+              <li><button type="button">b</button></li>
+              <li><button type="button">c</button></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <button id="data">Data</button>
+            <ul class="dropdown">
+              <li><button type="button">a</button></li>
+              <li><button type="button">b</button></li>
+              <li><button type="button">c</button></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <button type="button" id="tools">Tools</button>
+            <ul class="dropdown">
+              <li><button type="button">a</button></li>
+              <li><button type="button">b</button></li>
+              <li><button type="button">c</button></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <button type="button" id="extensions">Extensions</button>
+            <ul class="dropdown">
+              <li><button type="button">a</button></li>
+              <li><button type="button">b</button></li>
+              <li><button type="button">c</button></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <button type="button" id="help">Help</button>
+            <ul class="dropdown">
+              <li><button type="button">a</button></li>
+              <li><button type="button">b</button></li>
+              <li><button type="button">c</button></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </header>
     <div class="tool-bar">
-        <button id="bold">B</button>
-        <button id="italic">I</button>
-        <button id="underline">U</button>
+      <button id="bold">B</button>
+      <button id="italic">I</button>
+      <button id="underline">U</button>
     </div>
     <section class="formula-bar">
-        <input id="address-input" type="text">
-        <input id="formula-input" type="text">
+      <input id="address-input" type="text" placeholder="A-1"/>
+      <input id="formula-input" type="text" placeholder="fx"/>
     </section>
     <main>
-        <section class="workspace">
-            <div class="grid">
-
-            </div>
-        </section>
+      <section class="workspace">
+        <div class="sheet-grid">
+          <div class="corner-cell"></div>
+        </div>
+      </section>
     </main>
-   <script src="script.js" ></script>
-</body>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

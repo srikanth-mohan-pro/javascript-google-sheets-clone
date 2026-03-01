@@ -2,19 +2,22 @@ body{
     display:flex;
     flex-direction: column;
     margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+}
+.sheet-container{
+    width: max-content;
 }
 .header{
     display: grid;
     grid-template-columns: 60px 1fr;
     grid-template-rows: 30px 30px;
-    height: 60px;
 }
 .brand{
     display: flex;
     width: 60px;
     aspect-ratio: 1;
     margin: 0;
-    /* border: 1px solid black; */
     padding: 0px;
     grid-row: span 2;
 }
@@ -23,10 +26,7 @@ body{
     height: 100%;
     align-items: center;
     padding-left: 8px;
-    padding-top: 5px;
-    /* letter-spacing: 1px; */
     font-size: 12px;
-    /* border: 1px solid black; */
     margin:0;
 }
 .title h1{
@@ -46,7 +46,6 @@ body{
     align-items: center;
     height: 100%;
     margin: 0;
-    /* border: 1px solid black; */
 }
 .menu-list{
     padding: 0;
@@ -71,12 +70,14 @@ body{
     height: 30px;
     gap: 5px;
     margin: 0;
-    /* border: 1px solid black; */
-    padding-left: 6px;
+    background: #f8f9fa;
+    padding-left: 3px;
 }
 .tool-bar button{
-    background-color: #f8f8f8;
-    border-radius: 4px;
+    background-color: black;
+    color: white;
+    border-color:white;
+    border-radius: 6px;
     width: 30px;
     height: 80%;
     display: flex;
@@ -88,14 +89,72 @@ body{
 .formula-bar{
     height: 30px;
     display: flex;
-    /* border: 1px solid black; */
-    padding: 3px;
 }
 #address-input{
-    width: 40px;
-    margin-right: 5px;
+    width: 80px;
+    margin: 0;
+    border:none;
+    font-family: Arial, sans-serif;
+    font-size : 14px;
+    padding: 0 8px;
+    margin: 0;
+    background-color: #f6fbfd;
 }
 #formula-input{
     flex: 1;
-    margin-right: 5px;
+    font-family: Arial, sans-serif;
+    font-size : 14px;
+    padding: 0 8px;
+    margin: 0;
+    background-color: #f6fbfd;
+    border:none;
+}
+#formula-input::placeholder{
+    color: #888;
+    font-style: italic;
+    font-size: 13px;
+}
+#address-input:focus, #formula-input:focus{
+    outline: none;
+    box-shadow: none;
+}
+.sheet-grid{
+    display: grid;
+    grid-template-columns: 100px repeat(26, 100px);
+    grid-template-rows: 32px repeat(100, 32px);
+}
+.sheet-grid {
+  border-top: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+}
+
+.sheet-grid > * {
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.corner-cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f3f4;
+    border-top:none;
+    border-left:none;
+}
+.column-header,.row-header{
+     font-size: 12.5px;
+    background-color: #f8f9fa;
+    font-weight: 500;
+}
+.column-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cell{
+    background-color: #ffffff;
 }
