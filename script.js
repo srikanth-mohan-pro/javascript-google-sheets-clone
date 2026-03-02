@@ -120,6 +120,66 @@ function removeDependency(cellAddress){
     }
     cell.parents=[];
 }
+//Formula Evaluation
+function evaluateFormula(cellAddress){
+    const cell=sheetDB[cellAddress];
+
+    if(!cell.formula.startsWith("=")){
+        return cell.value;
+    }
+
+    let expression=cell.formula.slice(1);
+
+    const refs=extractCellRefs(cell.formula);
+
+    for(let ref of refs){
+        const parentValue=sheetDB[ref].value;
+
+        const numericValue=parseFloat(parentValue);
+
+        expression=expression.replaceAll(ref,isNaN(numericValue)?0:numericValue);
+    }
+
+    try{
+        const result=eval(expression);
+
+        if(result===Infinity||result===-Infinity||isNaN(result)){
+            return "ERROR";
+        }
+
+        return result.toString();
+
+    }catch(error){
+        return "ERROR";
+    }
+}
+
+//Implements Dependency Propogation
+function propagateChanges(cellAddress){
+    const cell=sheetDB[cellAddress];
+
+    for(let childAddress of cell.dependents){
+        const childcell=sheetDB[childAddress];
+        const newValue=evaluateFormula(childAddress);
+        childcell.value=newValue;
+
+        const colLetter=childAddress[0];
+        const rowNumber=parseInt(childAddress.slice(1));
+
+        const colIndex=colLetter.charCodeAt(0)-65;
+        const rowIndex=rowNumber - 1;
+
+        const childElement=document.querySelector(
+            `.cell[data-row="${rowIndex}"][data-col="${colIndex}"]`
+        );
+
+        if(childElement){
+            childElement.innerText= childcell.value || "";
+        }
+
+        propagateChanges(childAddress);
+    }
+}
 
 //Commit Formula
 function commitFormula(cellAddress,inputValue){
@@ -130,8 +190,7 @@ function commitFormula(cellAddress,inputValue){
 
         cell.formula="";
         cell.value=inputValue;
-        
-
+        propagateChanges(cellAddress);
         return true;
     }
 
@@ -153,9 +212,14 @@ function commitFormula(cellAddress,inputValue){
     }
 
     cell.formula=newFormula;
-    cell.value=newFormula;
+
+    const evaluatedValue=evaluateFormula(cellAddress);
+    cell.value=evaluatedValue;
+    propagateChanges(cellAddress);
+
     return true;
 }
+
 //Saves Cell data while switching to another Cell
 function commitEdit(){
     const address=getCellAddress(selectedCell);
@@ -271,15 +335,39 @@ document.addEventListener("keydown",function(e){
     if(document.activeElement===formulaInput) return;
     if(document.activeElement===addressInput) return;
     if(!selectedCell) return;
-      
-    if(e.key==="Enter"&&isEditing){
+    
+    if(isEditing){
+        if(e.key==="Enter"&&isEditing){
         const committed=commitEdit();
         if(!committed) return;
         return;
+        }
+        return;
     }
-    if(isEditing) return;
-  
-    if(e.key==="Delete"&&selectedCell&&!isEditing){
+    
+    const currentRow=Number(selectedCell.dataset.row);
+    const currentCol=Number(selectedCell.dataset.col);
+    
+    let newRow=currentRow;
+    let newCol=currentCol;
+
+    if(e.key==="ArrowUp"){
+        newRow=Math.max(0,currentRow-1);
+    }
+    else if(e.key==="ArrowDown"){
+        newRow=Math.min(r-1,currentRow+1);
+    }
+    else if(e.key==="ArrowLeft"){
+        newCol=Math.max(0,currentCol-1);
+    }
+    else if(e.key==="ArrowRight"){
+        newCol=Math.min(c-1,currentCol+1);
+    }
+    else if(e.key==="Tab"){
+        e.preventDefault();
+        newCol=Math.min(c-1,currentCol+1);
+    }
+    else if(e.key==="Delete"&&selectedCell&&!isEditing){
         const address=getCellAddress(selectedCell);
 
         const success=commitFormula(address,"");
@@ -291,11 +379,31 @@ document.addEventListener("keydown",function(e){
 
         return;
     }
-
-    if(e.key.length===1&&!e.ctrlKey&&!e.metaKey){
+    else if(e.key.length===1&&!e.ctrlKey&&!e.metaKey){
         startEditing(e.key);
         e.preventDefault();
     }
+    else {
+        return;
+    }
+    
+    const nextCell=document.querySelector(
+        `.cell[data-row="${newRow}"][data-col="${newCol}"]`
+    );
+
+    if(!nextCell) return
+
+    selectedCell.classList.remove("selected");
+    nextCell.classList.add("selected");
+    selectedCell=nextCell;
+    
+    const address=getCellAddress(selectedCell);
+    addressInput.value=address;
+    
+    const cellData=sheetDB[address];
+    formulaInput.value=cellData.formula || cellData.value || "";
+
+    selectedCell.scrollIntoView({block: "nearest"});
 });
 
 //Implement bold,italic and undreline button
