@@ -4,14 +4,14 @@ Browser based spreadsheet application built with HTML,CSS, and Vanilla JavaScrip
 
 ## Features
 
--Dynamic 100x26 spreadsheet grid
--Editable cells with floating editor
--Formula support (e.g,=A1+B1)
--Dependency graph tracking
--Circular graph tracking
--Automatic recalculation of dependent cells
--Keyboard navigation (Arrow keys,Tab,Enter)
--Formula bar and address bar synchronization
+- Dynamic 100x26 spreadsheet grid
+- Editable cells with floating editor
+- Formula support (e.g,=A1+B1)
+- Dependency graph tracking
+- Circular graph tracking
+- Automatic recalculation of dependent cells
+- Keyboard navigation (Arrow keys,Tab,Enter)
+- Formula bar and address bar synchronization
 
 ## How It Works
 
